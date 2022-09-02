@@ -36,16 +36,21 @@ class Carrinho:
         return total
 
     def printar_produtos(self):
-        print("Produto:----------------------------------------------Preço:")
-        for produto in self.produtos:
-            print(
-                f"{self.itens[produto.get_nome()]}x {produto.get_nome()}------------------------------------------ R$ {self.itens[produto.get_nome()] * produto.get_preco()}")
-        print()
-        print(f"Total:  R$ {self.calcular_total()}")
-        return
+        if len(self.produtos) == 0:
+            print("Carrinho vazio!")
+            return
+        else:
+            print("Produto:----------------------------------------------Preço:")
+            for produto in self.produtos:
+                print(
+                    f"{self.itens[produto.get_nome()]}x {produto.get_nome()}------------------------------------------ R$ {self.itens[produto.get_nome()] * produto.get_preco()}")
+            print()
+            print(f"Total:  R$ {self.calcular_total()}")
+            return
 
 
 # carro = Carrinho()
 # carro.adicionar_produtos(PRODUTOS[0], 2)
 # carro.adicionar_produtos(PRODUTOS[1], 1)
 # carro.printar_produtos()
+
