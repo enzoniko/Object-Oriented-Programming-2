@@ -54,12 +54,12 @@ class Exercises:
             salario = float(input("Digite seu salário: "))
 
         sexo = input("Digite seu sexo: (m/f) ")
-        while sexo != "f" and sexo != "m":
+        while sexo not in ["f", "m"]:
             print("Sexo inválido, digite 'f' para feminino ou 'm' para masculino")
             sexo = input("Digite seu sexo: ")
 
         estado_civil = input("Digite seu estado civil: (s/c/v/d) ")
-        while estado_civil != "s" and estado_civil != "c" and estado_civil != "v" and estado_civil != "d":
+        while estado_civil not in ["s", "c", "v", "d"]:
             print("Estado civil inválido, digite 's' para solteiro, 'c' para casado, 'v' para viúvo ou 'd' para divorciado")
             estado_civil = input("Digite seu estado civil: ")
         print("Dados válidos!")
@@ -153,15 +153,31 @@ class Exercises:
         # Exercício 10
         # Faça um programa que receba dois números inteiros e gere os números inteiros que estão
         # no intervalo compreendido por eles.
-        print([i for i in range(int(input("Digite o primeiro número: ")),
-              int(input("Digite o segundo número: ")) + 1)])
+        print(
+            list(
+                range(
+                    int(input("Digite o primeiro número: ")),
+                    int(input("Digite o segundo número: ")) + 1,
+                )
+            )
+        )
+
         return
 
     def exer_11(self):
         # Exercício 11
         # Altere o programa anterior para mostrar no final a soma dos números.
-        print(sum([i for i in range(int(input("Digite o primeiro número: ")), int(
-            input("Digite o segundo número: ")) + 1)]))
+        print(
+            sum(
+                list(
+                    range(
+                        int(input("Digite o primeiro número: ")),
+                        int(input("Digite o segundo número: ")) + 1,
+                    )
+                )
+            )
+        )
+
         return
 
     def exer_12(self):

@@ -30,15 +30,14 @@ class Carrinho:
         return
 
     def calcular_total(self):
-        total = 0
-        for produto in self.produtos:
-            total += self.itens[produto.get_nome()] * produto.get_preco()
-        return total
+        return sum(
+            self.itens[produto.get_nome()] * produto.get_preco()
+            for produto in self.produtos
+        )
 
     def printar_produtos(self):
         if len(self.produtos) == 0:
             print("Carrinho vazio!")
-            return
         else:
             print("Produto:----------------------------------------------Preço:")
             for produto in self.produtos:
@@ -46,7 +45,8 @@ class Carrinho:
                     f"{self.itens[produto.get_nome()]}x {produto.get_nome()}------------------------------------------ R$ {self.itens[produto.get_nome()] * produto.get_preco()}")
             print()
             print(f"Total:  R$ {self.calcular_total()}")
-            return
+
+        return
 
 
 # carro = Carrinho()
