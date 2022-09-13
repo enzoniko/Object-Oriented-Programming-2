@@ -153,15 +153,31 @@ class Exercises:
         # Exercício 10
         # Faça um programa que receba dois números inteiros e gere os números inteiros que estão
         # no intervalo compreendido por eles.
-        print([i for i in range(int(input("Digite o primeiro número: ")),
-              int(input("Digite o segundo número: ")) + 1)])
+        print(
+            list(
+                range(
+                    int(input("Digite o primeiro número: ")),
+                    int(input("Digite o segundo número: ")) + 1,
+                )
+            )
+        )
+
         return
 
     def exer_11(self):
         # Exercício 11
         # Altere o programa anterior para mostrar no final a soma dos números.
-        print(sum([i for i in range(int(input("Digite o primeiro número: ")), int(
-            input("Digite o segundo número: ")) + 1)]))
+        print(
+            sum(
+                list(
+                    range(
+                        int(input("Digite o primeiro número: ")),
+                        int(input("Digite o segundo número: ")) + 1,
+                    )
+                )
+            )
+        )
+
         return
 
     def exer_12(self):
