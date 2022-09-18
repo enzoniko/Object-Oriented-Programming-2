@@ -57,8 +57,9 @@ class CamaroteInferior(IngressoVIP):
 class CamaroteSuperior(IngressoVIP):
     def __init__(self, valor, adicional, local, adicional2=50):
         self.adicional2 = adicional2
+        self.local = local
         # Inheritance overloading parameters error???
-        super().__init__(valor, adicional, local)
+        super().__init__(valor, adicional)
 
     def getLocal(self):
         return self.local
