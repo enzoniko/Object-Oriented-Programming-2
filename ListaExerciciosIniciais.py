@@ -571,10 +571,19 @@ class Exercises:
         print(
             f"Cliente mais magro: {min(clientes, key=lambda x: clientes[x][1])}")
         print(
+<<<<<<< HEAD
             f"Média das alturas: {sum(clientes[x][0] for x in clientes) / len(clientes)}")
 
         print(
             f"Média dos pesos: {sum(clientes[x][1] for x in clientes) / len(clientes)}")
+=======
+            f"Média das alturas: {sum(clientes[x][0] for x in clientes) / len(clientes)}"
+        )
+
+        print(
+            f"Média dos pesos: {sum(clientes[x][1] for x in clientes) / len(clientes)}"
+        )
+>>>>>>> 982ff5f9246403d9ee06b3921bc9473852c3905e
 
         return
 
@@ -812,8 +821,15 @@ class Exercises:
         # 10 - A
         # Após concluir isto você poderia incrementar o programa permitindo que o professor
         # digite o gabarito da prova antes dos alunos usarem o programa.
+<<<<<<< HEAD
         gabarito = {i: input(f"Digite a resposta da questão {i}: ")
                     for i in range(1, 11)}
+=======
+        gabarito = {
+            i: input(f"Digite a resposta da questão {i}: ") for i in range(1, 11)
+        }
+
+>>>>>>> 982ff5f9246403d9ee06b3921bc9473852c3905e
 
         lacertos = []
         while True:
