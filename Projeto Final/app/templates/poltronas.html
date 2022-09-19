@@ -14,10 +14,14 @@
     </div>
     <div>
         <form method="POST" action="">
-            {% for linha in poltronas %}
+            {% for linha in range(poltronas|length) %}
                 <br>
-                {% for poltrona in linha %}
-                    <input type="checkbox" name="poltronas">
+                {% for poltrona in range(poltronas[linha]|length) %}
+                    {% if poltronas[linha][poltrona] == 1 %}
+                        <input type="checkbox" name="poltronas" value="{{ linha }} {{ poltrona }}" disabled>
+                    {% else %}
+                        <input type="checkbox" name="poltronas" value="{{ linha }} {{ poltrona }}">
+                    {% endif %}
                 {% endfor %}
             {% endfor %}
             {{ form.hidden_tag() }}

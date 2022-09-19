@@ -40,20 +40,23 @@ def poltronas(id_sessao, horario):
     )
     sala = sala_mais_vazia(quantidade_lugares_disponiveis_sala_mais_vazia, session)
     poltronas = sala.get_cronograma()[f"{id_sessao} {horario}"]
-    sala.preencher_poltronas(["b10", "b9"], id_sessao, horario)
-    sala.printar_poltronas(id_sessao, horario)
-    print(request.form)
     ingressos = request.form.getlist('poltronas')
-    print("lista: ", ingressos)
+    letras=["o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"]
+    numeros=["10", "9", "8", "7", "6", "5", "4", "3", "2", "1"]
+
+    poltronas_a_preencher = [letras[int(ingressos[i].split()[0])]+numeros[int(ingressos[i].split()[1])] for i in range(len(ingressos))]
+    sala.preencher_poltronas(poltronas_a_preencher, id_sessao, horario)
+    sala.printar_poltronas(id_sessao, horario)
     form = CompraForm()
     if form.validate_on_submit():
-        
+        if len(ingressos) > quantidade_lugares_disponiveis_sala_mais_vazia:
+            flash('Você não pode comprar mais ingressos do que a sala possui. Por favor, escolha uma quantidade menor.')
         if form.meias.data > len(ingressos):
             flash('Você não pode comprar mais meias-entradas do que ingressos. Por favor, escolha um número menor de meias-entradas.')
         else:
             flash(f'Você comprou {len(ingressos)} ingressos e {form.meias.data} meias-entradas.')
             return redirect(url_for('escolha_do_filme'))
-    return render_template('poltronas.html', title='Sessoes', horario = horario, sessao = session, form=form, poltronas=poltronas)
+    return render_template('poltronas.html', title='Sessoes', horario = horario, sessao = session, form=form, poltronas=[poltronas[i-1][::-1] for i in range(len(poltronas), 0, -1)])
 
 
 @app.route('/adminLogin', methods=['GET', 'POST'])
