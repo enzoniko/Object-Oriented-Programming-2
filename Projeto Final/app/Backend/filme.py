@@ -1,5 +1,8 @@
 # Importa a função lista_strings_para_string do módulo helpers
-from helpers import lista_strings_para_string
+from app.Backend.helpers import lista_strings_para_string
+
+# Importa a função lista_strings_para_string do módulo helpers
+# from helpers import lista_strings_para_string
 
 # Cria a super classe Filme
 

@@ -1,17 +1,27 @@
 # Importa tudo que é necessário para o funcionamento do programa
-from filme import Filme
-from helpers import most_empty, lugares_disponiveis, lista_strings_para_string, verificador_input
-from sessao import Sessao
-from sala import salas
-from pagamento import Pagamento
+from app.Backend.filme import Filme
+from app.Backend.helpers import most_empty, lugares_disponiveis, lista_strings_para_string, verificador_input
+from app.Backend.sessao import Sessao
+from app.Backend.sala import salas
+from app.Backend.pagamento import Pagamento
+
+# Importa tudo que é necessário para o funcionamento do programa
+# from filme import Filme
+# from helpers import most_empty, lugares_disponiveis, lista_strings_para_string, verificador_input
+# from sessao import Sessao
+# from sala import salas
+# from pagamento import Pagamento
 
 
 # Lista de pagamentos (usar para mostrar o total faturado para o administrador)
 pagamentos = []
 
 # Listas de sessoes e filmes
-sessoes = []
-filmes = []
+sessoes = [Sessao(nome='Barbie', generos=['aventura'], horarios=['15:00', '20:00'], DDD=False, legenda=False), Sessao(nome='Barbie', generos=['aventura'], horarios=['11:00', '23:00'], DDD=True, legenda=True), Sessao(nome='Sonic', generos=['aventura'], horarios=['15:00', '20:00'], DDD=False, legenda=False)]
+salas[0].adicionar_sessao(sessoes[0])
+salas[0].adicionar_sessao(sessoes[1])
+salas[1].adicionar_sessao(sessoes[2])
+filmes = [Filme(nome="Barbie", generos=["aventura"]), Filme(nome="Sonic", generos=["aventura"])]
 
 # Função que preenche as poltronas de uma sala
 
@@ -71,23 +81,24 @@ def printar_filmes():
         filmes[filme].print_info()
         print()
     print('-----------------------------------------------------')
-
+    return [(filmes.index(filme) + 1, filme) for filme in filmes]
 # Função que printa as sessões de um filme
 
 
-def printar_sessoes(nome_do_filme):
+def printar_sessoes(filme):
     print()
-    print(f"Sessões de {nome_do_filme.upper()}: ")
+    print(f"Sessões de {filme.upper()}: ")
     print()
-    # Pra cada sessão da lista de sessões cujo nome do filme é o mesmo que o usuário deseja assistir
-    for sessao in range(len([sessao for sessao in sessoes if sessao.get_nome() == nome_do_filme])):
+    # Pra cada sessão da lista de sessões cujo nome do .get_nome() é o mesmo que o usuário deseja assistir
+    for sessao in range(len([sessao for sessao in sessoes if sessao.get_nome() == filme])):
         print(f"{sessao + 1}: ", end="")
         # Mostra a sessão
         sessao = sessoes.index(
-            [sessao for sessao in sessoes if sessao.get_nome() == nome_do_filme][sessao])
+            [sessao for sessao in sessoes if sessao.get_nome() == filme][sessao])
         sessoes[sessao].print_info()
         print()
     print('-----------------------------------------------------')
+    return [(sessoes.index(sessao), sessao) for sessao in [sessao for sessao in sessoes if sessao.get_nome() == filme]]
 
 # Função que mostra a sessão escolhida e opcionalmente seus horárioss
 

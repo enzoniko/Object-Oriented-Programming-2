@@ -1,8 +1,10 @@
 # Importa a sub classe Sessao do módulo sessao
-from sessao import Sessao
+# from app.Backend.sessao import Sessao
 
 # Importa a função printa_matriz e check_1 do módulo helpers
-from helpers import check_1, printa_matriz
+from app.Backend.helpers import check_1, printa_matriz
+
+# from helpers import check_1, printa_matriz
 
 # Constantes de colunas e linhas da matriz de poltronas
 COLUNAS = 10

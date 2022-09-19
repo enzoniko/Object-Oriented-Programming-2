@@ -1,8 +1,14 @@
 # Importa a super classe Filme do módulo Filme
-from filme import Filme
+from app.Backend.filme import Filme
 
 # Importa a função lista_strings_para_string do módulo helpers
-from helpers import lista_strings_para_string
+from app.Backend.helpers import lista_strings_para_string
+
+# Importa a super classe Filme do módulo Filme
+# from filme import Filme
+
+# # Importa a função lista_strings_para_string do módulo helpers
+# from helpers import lista_strings_para_string
 
 # Cria a sub classe Sessao que herda de Filme
 

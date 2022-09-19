@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    <br>
+    <div>     
+        {% if sessao %}  
+            <p>{{ sessao }}</p>
+            {% for horario in horarios %}
+                <br>
+                <a href="{{ url_for('confirmacao_escolha', sessao = sessao, horario=horario )}}">{{ horario }}</a>
+            {% endfor %}
+        {% else %}
+            <p> There are no sessions to watch! </p>
+        {% endif %}
+    </div>
+{% endblock content %}
