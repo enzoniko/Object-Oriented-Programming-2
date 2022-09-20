@@ -8,6 +8,7 @@ class Pagamento():
         self.valor = 0
         self.set_valor(ingressos, meias)
         self.forma = forma
+        self.id = id(self)
 
     # get_valor retorna o valor total dos ingressos
     def get_valor(self):
