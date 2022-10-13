@@ -1,4 +1,5 @@
 # Importa a função lista_strings_para_string do módulo helpers
+from dataclasses import dataclass
 from app.Backend.helpers import lista_strings_para_string
 
 # Importa a função lista_strings_para_string do módulo helpers
@@ -6,13 +7,14 @@ from app.Backend.helpers import lista_strings_para_string
 
 # Cria a super classe Filme
 
-
+@dataclass
 class Filme:
-
+    nome 
     # Construtor da classe Filme, recebe os atributos do filme (nome, generos)
     def __init__(self, nome, generos):
         self.nome = nome
         self.generos = generos
+        self.__image = None
 
     # getters e setters:
 
@@ -23,6 +25,9 @@ class Filme:
     # get_generos retorna os generos do filme
     def get_generos(self):
         return self.generos
+    
+    def get_image(self):
+        return self.__image
 
     # set_nome modifica o nome do filme
     def set_nome(self, nome):
