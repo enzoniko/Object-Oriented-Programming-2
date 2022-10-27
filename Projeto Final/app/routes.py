@@ -4,7 +4,7 @@ from app.forms import AdminLoginForm, CompraForm
 
 from app.Backend.main import sessoes, printar_filmes, printar_sessoes, sala_mais_vazia
 from app.Backend.helpers import most_empty
-from app.Backend.sala import salas
+from app.Backend.sala import salas, letras
 from app.Backend.pagamento import Pagamento
 payments = {}
 @app.route('/', methods=['GET', 'POST'])
@@ -49,10 +49,8 @@ def poltronas(id_sessao, horario):
         elif len(ingressos) >  quantidade_lugares_disponiveis_sala_mais_vazia:
             flash('Não há lugares suficientes disponíveis')
         else:
-
-            letras=["o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"]
-            numeros=["10", "9", "8", "7", "6", "5", "4", "3", "2", "1"]
-            poltronas_a_preencher = [letras[int(ingressos[i].split()[0])]+numeros[int(ingressos[i].split()[1])] for i in range(len(ingressos))]
+            # Made letras and numeros dynamic, test out later...
+            poltronas_a_preencher = [letras[::-1][int(ingressos[i].split()[0])]+[str(x+1) for x in range(len(poltronas[0]))][int(ingressos[i].split()[1])] for i in range(len(ingressos))]
             sala.preencher_poltronas(poltronas_a_preencher, id_sessao, horario)
             flash(f'Você comprou {len(ingressos)} ingressos e {form.meias.data} meias-entradas.')
             pagamento = Pagamento(len(ingressos), form.meias.data)

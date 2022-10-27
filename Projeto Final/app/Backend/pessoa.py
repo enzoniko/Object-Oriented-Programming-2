@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from helpers import automatic_getters_and_setters
 
 @automatic_getters_and_setters
 @dataclass(repr=False)
@@ -14,8 +15,8 @@ class Pessoa:
         print("CPF: ", self.cpf)
         print("Email: ", self.get_email())
 
-p1 = Pessoa(20, 12345678900)
-p1.print_info()
-p1._email = 'enzonsb@gmail.com'
-p1.set_email('enzob@gmail.com')
-p1.print_info()
+# p1 = Pessoa(20, 12345678900)
+# p1.print_info()
+# p1._email = 'enzonsb@gmail.com'
+# p1.set_email('enzob@gmail.com')
+# p1.print_info()
