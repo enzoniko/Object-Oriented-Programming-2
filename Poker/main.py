@@ -1,33 +1,39 @@
 from time import sleep
 from poker import Poker
 
+def main(num_jogadores: int = 6):
+  # Se quiser pedir pro usuário digitar o número de jogadores, descomente as linhas abaixo
+  # Pede pro usuário digitar o número de jogadores
+  # num_jogadores: int = int(input('Digite o número de jogadores: '))
+  # while (num_jogadores < 2 or num_jogadores > 6):
+  #   num_jogadores: int = int(input('Digite o número de jogadores: '))
 
-def main():
-  numHands = eval (input ('Enter number of hands to play: '))
-  while (numHands < 2 or numHands > 6):
-    numHands = eval( input ('Enter number of hands to play: ') )
-
-  print("...Dealing cards...")
-  game = Poker(num_hands=numHands)
-  sleep(2)
+  # Se quiser demorar um tempo respectivo ao número de jogadores, coloque num_jogadores/2 nos sleep
+  # Cria o objeto Poker
+  print("...Distribuindo as cartas...")
+  game: Poker = Poker(num_hands = num_jogadores)
+  sleep(1)
+  print('--------------------------------------------------------------')
+  # Distribui as cartas pra cada jogador
   game.play()
-  print("...Calculating scores...")
-  sleep(2)
-
+  print("...Calculando os pontos...")
+  sleep(1)
   print('\n')
-  for i in range(numHands):
-    curHand=game.hands[i]
-    print(f"Hand {str(i + 1)}: ", end="")
-    game.isRoyal(curHand)
 
-  maxpoint=max(game.tlist)
-  maxindex=game.tlist.index(maxpoint)
+  # Mostra o tipo da mão de cada jogador
+  for num_jogador, mao_atual in enumerate(game.hands):
+    print(f"Jogador {str(num_jogador + 1)}: ", end="")
+    game.isRoyal(mao_atual)
 
-  print ('\nHand %d wins'% (maxindex+1))
+  # Mostra o vencedor
+  print('\nJogador %d venceu'% (game.tlist.index(max(game.tlist)) + 1))
   
 if __name__ == "__main__":
-    while True:
-        main()
-        if input("Play again? (y/n): ") != "y":
-            break
-  
+  # Roda o programa
+  # Se quiser deixar o usuário digitar se deseja simular novamente, descomente as linhas abaixo
+  # Se quiser controlar a quantidade de jogadores, bote o número de jogadores como argumento da função main()
+  while True:
+      main(10)
+      # if input('Deseja simular novamente? (s/n)') == 'n':
+      #     break
+      
