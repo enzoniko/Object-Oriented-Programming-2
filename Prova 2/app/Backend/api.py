@@ -11,17 +11,11 @@ newsapi = NewsApiClient(api_key='d990b72484cd449188a699f77b9e1372')
 #                                           language='pt',
 #                                           country='br')
 
-
-# /v2/everything
-all_articles = newsapi.get_everything(q='futebol',
-                                      from_param=(datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"),
-                                      to=datetime.now().strftime("%Y-%m-%d"),
-                                      language='pt',
-                                      sort_by='popularity',
-                                      page=2)
+def get_all_articles(q: str, category: str, sort_by: str, from_param: str = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"), to: str = datetime.now().strftime("%Y-%m-%d")):
+    
+    return newsapi.get_everything(q=q, from_param=from_param, to=to, sources=', '.join([newsapi.get_sources(category=category)['sources'][i]['id'] for i in range(len(newsapi.get_sources(category=category)['sources']))]), sort_by=sort_by, page=1)['articles']
 
 
 
-
-#', '.join([newsapi.get_sources(category='sports')['sources'][i]['id'] for i in range(len(newsapi.get_sources(category='sports')['sources']))])
+#
 

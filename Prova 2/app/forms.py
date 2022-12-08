@@ -1,6 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, PasswordField, BooleanField, IntegerField, SelectField, StringField, FieldList, TimeField
+from wtforms import SubmitField, PasswordField, BooleanField, IntegerField, SelectField, StringField, FieldList, DateField
 from wtforms.validators import DataRequired, Length, NumberRange
 
 class LoginForm(FlaskForm):
@@ -21,3 +21,10 @@ class RegisterForm(FlaskForm):
     endereco = StringField('Endereco', validators=[DataRequired(), Length(min=4, max=20)])
     submit = SubmitField('Register')
 
+class FilterNewsForm(FlaskForm):
+    DataInicio = DateField('DataInicio', validators=[DataRequired()], default=datetime.now() - timedelta(days=30))
+    DataFim = DateField('DataFim', validators=[DataRequired()], default=datetime.now())
+    assunto = StringField('Assunto', validators=[DataRequired()])
+    categoria = SelectField('Categoria', choices=[('business', 'Negócios'), ('entertainment', 'Entretenimento'), ('general', 'Geral'), ('health', 'Saúde'), ('science', 'Ciência'), ('sports', 'Esportes'), ('technology', 'Tecnologia')])
+    filtrarPor = SelectField('FiltrarPor', choices=[('relevancy', 'Relevância'), ('popularity', 'Popularidade'), ('publishedAt', 'Cronologicamente')])
+    submit = SubmitField('Filtrar')

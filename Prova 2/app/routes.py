@@ -1,9 +1,10 @@
 # Imports
+from datetime import datetime, timedelta
 from typing import Dict, List
 from flask import render_template, redirect, url_for, request
 from app import app
-from app.forms import LoginForm, RegisterForm
-from app.Backend.api import *
+from app.forms import FilterNewsForm, LoginForm, RegisterForm
+from app.Backend.api import get_all_articles
 from app.Backend.usuario import Usuario
 from app.Backend.helpers import *
 
@@ -31,10 +32,13 @@ def login():
     if form.validate_on_submit():
         for user in usuarios:
             if user.login == form.login.data and user.senha == form.senha.data:
-                return redirect(url_for('main', user_id = usuarios.index(user)))
+                return redirect(url_for('main', user_id = usuarios.index(user), q = 'futbol', category = 'sports', sort_by = 'publishedAt', data_inicio = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"), data_fim = datetime.now().strftime("%Y-%m-%d")))
     return render_template('login.html', title = "Login", form = form)
 
-@app.route('/main/<user_id>', methods=['GET', 'POST'])
-def main(user_id: str):
-
-    return render_template('main.html', title = "Main", user = usuarios[int(user_id)], articles = all_articles['articles'])
+@app.route('/main/<user_id>/<q>/<category>/<sort_by>/<data_inicio>/<data_fim>', methods=['GET', 'POST'])
+def main(user_id: str, q: str = 'futbol', category: str = 'sports', sort_by: str = 'publishedAt', data_inicio: str = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"), data_fim: str = datetime.now().strftime("%Y-%m-%d")):
+    form: FilterNewsForm = FilterNewsForm()
+    if form.validate_on_submit():
+     
+        return redirect(url_for('main', user_id = user_id, q = form.assunto.data, category = form.categoria.data, sort_by = form.filtrarPor.data, data_inicio = form.DataInicio.data, data_fim = form.DataFim.data))
+    return render_template('main.html', form=form, title = "Main", user = usuarios[int(user_id)], articles = get_all_articles(q = q, category = category, sort_by = sort_by, from_param=data_inicio, to=data_fim))
