@@ -1,0 +1,6 @@
+flask
+wtforms
+newsapi-python
+flask-wtf
+Image
+flask-sqlalchemy

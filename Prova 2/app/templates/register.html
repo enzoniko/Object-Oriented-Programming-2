@@ -1,0 +1,189 @@
+<header class="home">
+    <nav>
+        <h1 class="nome_marca">INSIGHT</h1>
+        {% extends "layout.html" %}
+        {% block content %}
+    </nav>
+</header>
+<main>
+    <div class="login">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.nome.label(class="senha") }}<br>
+                    {% if form.nome.errors %}
+                        {{ form.nome() }}
+                        <div>
+                            {% for error in form.nome.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.nome(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.sobrenome.label(class="senha") }}<br>
+                    {% if form.sobrenome.errors %}
+                        {{ form.sobrenome() }}
+                        <div>
+                            {% for error in form.sobrenome.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.sobrenome(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.idade.label(class="senha") }}<br>
+                    {% if form.idade.errors %}
+                        {{ form.idade() }}
+                        <div>
+                            {% for error in form.idade.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.idade(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.genero.label(class="senha") }}<br>
+                    {% if form.genero.errors %}
+                        {{ form.genero() }}
+                        <div>
+                            {% for error in form.genero.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.genero(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.cpf.label(class="senha") }}<br>
+                    {% if form.cpf.errors %}
+                        {{ form.cpf() }}
+                        <div>
+                            {% for error in form.cpf.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.cpf(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.email.label(class="senha") }}<br>
+                    {% if form.email.errors %}
+                        {{ form.email() }}
+                        <div>
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.login.label(class="senha") }}<br>
+                    {% if form.login.errors %}
+                        {{ form.login() }}
+                        <div>
+                            {% for error in form.login.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.login(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.senha.label(class="senha") }}<br>
+                    {% if form.senha.errors %}
+                        {{ form.senha() }}
+                        <div>
+                            {% for error in form.senha.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.senha(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.telefone.label(class="senha") }}<br>
+                    {% if form.telefone.errors %}
+                        {{ form.telefone() }}
+                        <div>
+                            {% for error in form.telefone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.telefone(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.endereco.label(class="senha") }}<br>
+                    {% if form.endereco.errors %}
+                        {{ form.endereco() }}
+                        <div>
+                            {% for error in form.endereco.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.endereco(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+           
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock content %}

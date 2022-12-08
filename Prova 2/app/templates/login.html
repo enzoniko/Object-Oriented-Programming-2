@@ -1,0 +1,54 @@
+<header class="home">
+    <nav>
+        <h1 class="nome_marca">INSIGHT</h1>
+        {% extends "layout.html" %}
+        {% block content %}
+    </nav>
+</header>
+<main>
+    <div class="login">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Login to access the program</legend>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.login.label(class="senha") }}<br>
+                    {% if form.login.errors %}
+                        {{ form.login() }}
+                        <div>
+                            {% for error in form.login.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.login(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <legend>Login to access the program</legend>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.senha.label(class="senha") }}<br>
+                    {% if form.senha.errors %}
+                        {{ form.senha() }}
+                        <div>
+                            {% for error in form.senha.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.senha(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock content %}
