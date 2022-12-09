@@ -1,20 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-/*----------------------- GERAL E HOME ----------------------------*/
-
-/*  -- MUDAR O TAMANHO DAS INFORMAÇÕES NA PARTE DA EDIÇÃO, NO HOME É 80% POR CAUSA DA IMAGEM
-    NA EDIÇÃO NÃO PRECISAMOS QUE SEJA PEQUENO.
-    
-    -- DESCOBRIR COMO COLOCAR ELEMENTOS UM DO LADO NO OUTRO COMO OS HORARIOS NA HORA DE EDITAR.
-
-    --
-*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Raleway:wght@100;400;800&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Century Gothic';
+    font-family: 'Raleway', sans-serif;
 }
 
 ::-webkit-scrollbar{
@@ -23,29 +13,43 @@
 }
 
 ::-webkit-scrollbar-track{
-    background-color: #E7E7E7;
+    background-color: #fff;
     border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color:  rgb(12, 12, 12);
+    background-color:  #152e74;
     border: #fff solid 1px;
     border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #BB0000;
+    background: #0580a5;
   }
 
 body{
-    background-color: rgb(12, 12, 12);
-    color:#fff;
+    background-color: #fff;
+    color:#000;
     margin: 0px auto;
 }
 
 .home{
     width: 100%;
-    background-color: #BB0000;
+    background-color: #0580a5;
+    box-shadow: inset 22px 22px 33px #04617d,
+                inset -22px -22px 33px #069fcd;
+}
+
+.bemvindo{
+    display: flex;
+    color: #152e74;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 20px 10px 20px;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 400;
 }
 
 main , nav{
@@ -58,16 +62,30 @@ h1{
     font-weight: 400;
     line-height: 78px;
     float: left;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
 }
 
-h2{
-    font-weight: 400;
-    color: #fff;
+h3{
+    color: #152e74;
     font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
 }
+
 
 p {
-    color: #fff;
+    color: #152e74;
+    font-family: 'Raleway', sans-serif;
+    text-align: justify;
+    margin: 20px 0px 20px 0px;
+}
+
+a{
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: #152e74;
 }
 
 header{
@@ -96,25 +114,43 @@ header a{
     text-decoration: none;
     text-transform: uppercase;
     font-size: 22px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
 }
 
 img{
-    width: 250px;
+    width: 430px;
     border-radius: 8px;
+    opacity: 1;
 }
 
-.nova_sessao{
-    color:#fff;
+.noticia{
+    display: flex;
+    align-items: center;
+    margin: 30px 0px 0px 0px;
 }
 
-.info{
-    margin-bottom: 20px;
+.upper{
+    text-transform: uppercase;
 }
 
-.cartaz_info a{
-    height: 40px;
-    width: 100px;
-    padding: 5px 0px 0px 30px;
+.noticia:hover{
+    color: #0580a5;   
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+.noticia:hover img{
+    opacity: 0.8;
+    transition: 0.2s;
+}
+.noticia:hover h3, .noticia:hover p, .noticia:hover a{
+    color: #0580a5;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.informacao{
+    margin: 0px 0px 0px 20px;
 }
 
 header p{
@@ -128,119 +164,10 @@ nav{
     align-items: center;
 }
 
-.horario{
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-    transition: 0.2s;
-    border: #BB0000 solid 2px;
-    border-radius: 8px;
-    margin: 5px 5px 5px 5px;
-}
-
-.horario:hover{
-    background: #BB0000;
-    color: aliceblue;
-    box-shadow: 0 0 25px #BB0000;
-    transition-delay: 0.1s ;
-}
-
 main h1{
     line-height: 0px;
     text-transform: uppercase;
 }
-
-.tipo, .genero{
-    padding: 8px 16px;
-    margin: 3px;
-    letter-spacing: 1px;
-    font-size: 14px;
-}
-
-.tipo{
-    width: 100px;
-    background-color: #BB0000;
-    color: #fff;
-    border-radius: 8px;
-    margin: 5px 5px 5px 5px;
-}
-
-.genero{
-    border-left: #ffffff solid 1px;
-    margin: 10px 0px 10px 0px;
-}
-
-.idade{
-    margin: 10px 15px 10px 0px;
-    padding: 10px 10px 10px 10px;
-    border: #fff solid 1px;
-    border-radius: 8px;
-}
-
-.titulo_filme{
-    width: 100%;
-    height: 9%;
-    display: flex;
-    align-items: center;
-}
-
-.sinopse{
-    height: 130px;
-    overflow-y: scroll;
-    padding: 0px 10px 0px 0px;
-}
-
-.conteudo_filme{
-    width: 100%;
-}
-
-.cartaz{
-    width: 100%;
-    display: flex;
-    margin:64px 0px 64px 0px;
-}
-
-.cartaz_info{
-    width: 80%;
-    display: flex;
-    margin: 0px 0px 0px 20px;
-    align-items: center;
-    flex-wrap: wrap;
-    line-height: 26px;
-}
-
-.cartaz_info_edicao{
-    justify-content: space-between;
-    width: 80%;
-    display: flex;
-    margin: 0px 0px 0px 20px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.tipo_edit{
-    letter-spacing: 1px;
-    font-size: 14px;
-    border: 1px solid #BB0000;
-    color: #fff;
-    border-radius: 8px;
-    margin: 5px 5px 5px 5px;
-}
-
-.tipo_edit:hover{
-    background: #BB0000;
-    color: aliceblue;
-    box-shadow: 0 0 25px #BB0000;
-    transition-delay: 0.1s ;
-}
-
-.info p{
-    background-color: rgb(12, 12, 12);
-}
-
-/*----------------------- POLTRONAS ----------------------------*/
 
 #form_poltronas{
     display: flex;
@@ -248,122 +175,43 @@ main h1{
     align-items: normal;
 }
 
-.bloco_poltronas{
-    margin: 10px 10px 10px 10px;
-}
-
-.bloco_form{
-    margin: 0px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.bloco_poltronas h1{
-    margin:0px 30px 30px 14px;
-}
-
 input{
-    width: 30px;
+    color:#152e74;
+    width: 300px;
     height: 30px;
-    margin: 5px 5px;
+    margin: 0px 5px;
     font-size: 18px;
-}
-
-input:hover{
-    box-shadow: 0 0 5px #fff;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: inset 3px 3px 10px #949494, inset 0px 0px 10px #fff;
 }
 
 .camposenha{
-    width: 300px;
-    height: 35px;
-    background:  rgb(12, 12, 12);
-    color: #fff;
+    height: 40px;
     border-radius: 8px;
     padding: 10px 10px 10px 10px;
-}
-
-#meias{
-    width: 20%;
-    border:1px solid #fff;
-}
-
-.meias{
-    margin: 30px 0px 20px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.pagamento{
-    margin: 30px 0px 20px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#maneira{
-    margin: 10px 0px 10px 0px;
 }
 
 #submit{
     width: 300px;
     height: 40px;
-    background-color: rgb(12, 12, 12);
-    color: #fff;
-    border: 2px solid #BB0000;
+    margin: 15px 5px 5px 5px;
     border-radius: 8px;
+    border: none;
+    background: #fff;
+    box-shadow: inset 3px 3px 10px #949494, inset 0px 0px 10px #fff;
 }
 
 #submit:hover{
-    background: #BB0000;
-    color: aliceblue;
-    box-shadow: 0 0 25px #BB0000;
+    color: #152e74;
+    box-shadow: 0 0 5px #ffffff;
     transition-delay: 0.1s ;
 }
 
 #password{
     border: 1px solid #fff;
 }
-
-.poltronas{
-    margin: 20px 10px;
-}
-
-.escolha_poltrona{
-    display: flex;
-    margin: 50px auto;
-}
-
-.a_coluna{
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0px 19px 0px 12px;
-}
-
-.a_linha{
-    color: #fff;
-    font-size: 16px;
-    padding-bottom: 5px;
-    font-weight: 700;
-}
-
-.tela{
-    font-weight: 700;
-    font-size: 20px ;
-    letter-spacing: 10px;
-    margin: 0px 0px 0px 185px;
-}
-
-.check{
-    margin: 5px 5px 5px 5px;
-    width: 30px;
-    height: 30px;
-}
-
-/*----------------------- EDIÇÃO FILME ----------------------------*/
 
 fieldset{
     border: none;
@@ -376,195 +224,58 @@ fieldset{
 
 label{
     font-size: 18px;
-}
-.label_titulo_filme, .label_classificacao_filme{
-    display: flex;
-}
-
-.cartaz_info_edit{
-    width: 80%;
-    display: flex;
-    margin: 0px 0px 0px 20px;
-    align-items: center;
-    flex-wrap: wrap;
-    line-height: 26px;
-}
-
-.cartaz_info_edit p{
-    line-height: 30px;
-}
-
-.tipo_edit{
-    text-decoration: none;
-    padding: 8px 16px;
-    letter-spacing: 1px;
-    font-size: 14px;
-}
-
-.div_configuracao, .div_classificacao, .div_horario{
-   align-items: center;
-}
-
-.div_horario{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.div_configuracao{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.confirmar{
-    display: flex;
-    justify-content: center;
-    margin: 60px 0px;
-}
-
-.escolha_horario{
-    display: flex;
-}
-
-#titulo{
-    width: 450px;
-    height: 50px;
-    background-color: rgb(12, 12, 12);
-    border: 2px solid #fff;
-    border-radius: 8px;
     color: #fff;
-    font-size: 22px;
-    margin: -13px 0px 0px 0px;
-    padding: 10px 10px 10px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    margin: 0px 0px 0px 10px;
 }
-
-#classificacao{
-    margin: -13px 0px 0px 0px;
-}
-
-#horarios-0, #horarios-1{
-    width: 100px;
-    height: 50px;
-    background-color: #BB0000;
-    padding: 0px 10px 0px 10px;
-    border-radius: 8px;
-    border-color: #BB0000;
+legend{
     color: #fff;
-    font-size: 16px;
-}
-
-#confirmar, #cancelar, #aplicar{
-    width: 100px;
-    height: 50px;
-    background-color: rgb(12, 12, 12);
-    padding: 0px 10px 0px 10px;
-    border-radius: 8px;
-    border: 1px solid #BB0000;
-    color: #fff;
-    font-size: 16px;
-}
-
-#confirmar:hover, #cancelar:hover, #aplicar:hover{
-    background: #BB0000;
-    color: aliceblue;
-    box-shadow: 0 0 25px #BB0000;
-    transition-delay: 0.1s ;
 }
 
 select{
-    background-color: rgb(12, 12, 12);
-    color: #fff;
+    color: #152e74;
+    width: 300px;
     padding: 10px 10px 10px 20px;
-    border: 1px solid #fff;
+    border: 1px solid #152e74;
     border-radius: 8px;
     height: 50px;
+    margin: 0px 0px 0px 6px;
+    border: none;
+    background: #fff;
+    box-shadow: inset 3px 3px 10px #949494, inset 0px 0px 10px #fff;
 }
 
-.faturamento {
-    display: flex;
-    margin: 20px 0px 20px 0px;
-    flex-direction: column;
+#login_main{
+    margin: 0px 200px 60px 200px;
 }
 
-.faturamento p{
-    font-size: 18px;
-    margin: 5px 0px 5px 0px;
+#login_login{
+    margin: 200px 200px 0px 200px;
 }
 
-.nova_sessao{
-    border: 2px solid #BB0000;
-    border-radius: 8px;
-    width: 100%;
-    height: 50px;
-    text-decoration: none;
-    display: flex;
-    padding: 7px 0px 0px 350px;
-    margin-top: 30px;
+#login_register{
+    margin: 30px 200px 30px 200px;
+    
 }
-
-.nova_sessao:hover{
-    background: #BB0000;
-    color: aliceblue;
-    box-shadow: 0 0 25px #BB0000;
-    transition-delay: 0.1s ;
-}
-
-.horario_edit{
-    margin: 0px 20px;
-}
-
-.identacao{
-    display: flex;
-    height: 50px;
-    align-items: center;
-}
-
-/*----------------------- ADMIN LOGIN ----------------------------*/
 
 .login{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 200px 200px 0px 200px;
+    margin: 30px 200px 130px 200px;
     padding: 30px;
-    border: 1px solid #fff;
     border-radius: 8px;
-}
-
-.login:hover{
-    box-shadow: 0 0 5px #fff;
-    transition: 0.2s;
+    border: none;
+    background-color: #0580a5;
+    box-shadow: inset 10px 10px 40px #04617d, inset -20px -20px 40px #069fcd;
 }
 
 .formulario_login{
     align-items: center;
-    margin: 20px 0px;
+    margin: 5px 0px;
 }
-
-/*----------------------- PAGAMENTO ----------------------------*/
-#pagamento{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: end;
-    margin: 0px 358px 60px 0px;
-}
-
-.msg_pagamento{
-    margin: 20px 20px 20px 20px;
-    font-size: 16px;
-}
-
-.qrcode{
-    display: flex;
-}
-
-.msg{
-    font-size: 20px;
-    margin: 0px 0px 60px 350px;
-}
-
-
 
 .home{
     animation: fromTop .7s .2s backwards;

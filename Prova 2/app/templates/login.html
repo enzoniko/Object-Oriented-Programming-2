@@ -6,11 +6,10 @@
     </nav>
 </header>
 <main>
-    <div class="login">
+    <div class="login" id="login_login">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset>
-                <legend>Login to access the program</legend>
                 <div class="formulario_login">
                     <!-- form.something(class = "something to style") -->
                     {{ form.login.label(class="senha") }}<br>
@@ -28,7 +27,6 @@
                 
             </fieldset>
             <fieldset>
-                <legend>Login to access the program</legend>
                 <div class="formulario_login">
                     <!-- form.something(class = "something to style") -->
                     {{ form.senha.label(class="senha") }}<br>

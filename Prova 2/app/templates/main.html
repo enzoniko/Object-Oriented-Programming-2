@@ -5,108 +5,115 @@
         {% block content %}
     </nav>
 </header>
-<main>
-    <h2>Bem vindo(a) {{ user.nome }}!</h2>
-    <br>
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        <fieldset>
-            <div class="formulario_login">
-                <!-- form.something(class = "something to style") -->
-                {{ form.DataInicio.label(class="senha") }}<br>
-                {% if form.DataInicio.errors %}
-                    {{ form.DataInicio() }}
-                    <div>
-                        {% for error in form.DataInicio.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.DataInicio(class="camposenha") }}
-                {% endif %}  
-            </div>
-            
-        </fieldset>
-        <fieldset>
-            <div class="formulario_login">
-                <!-- form.something(class = "something to style") -->
-                {{ form.DataFim.label(class="senha") }}<br>
-                {% if form.DataFim.errors %}
-                    {{ form.DataFim() }}
-                    <div>
-                        {% for error in form.DataFim.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.DataFim(class="camposenha") }}
-                {% endif %}  
-            </div>
-            
-        </fieldset>
-        <fieldset>
-            <div class="formulario_login">
-                <!-- form.something(class = "something to style") -->
-                {{ form.assunto.label(class="senha") }}<br>
-                {% if form.assunto.errors %}
-                    {{ form.assunto() }}
-                    <div>
-                        {% for error in form.assunto.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.assunto(class="camposenha") }}
-                {% endif %}  
-            </div>
-            
-        </fieldset>
-        <fieldset>
-            <div class="formulario_login">
-                <!-- form.something(class = "something to style") -->
-                {{ form.categoria.label(class="senha") }}<br>
-                {% if form.categoria.errors %}
-                    {{ form.categoria() }}
-                    <div>
-                        {% for error in form.categoria.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.categoria(class="camposenha") }}
-                {% endif %}  
-            </div>
-            
-        </fieldset>
-        <fieldset>
-            <div class="formulario_login">
-                <!-- form.something(class = "something to style") -->
-                {{ form.filtrarPor.label(class="senha") }}<br>
-                {% if form.filtrarPor.errors %}
-                    {{ form.filtrarPor() }}
-                    <div>
-                        {% for error in form.filtrarPor.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.filtrarPor(class="camposenha") }}
-                {% endif %}  
-            </div>
-            
-        </fieldset>
-        <div>
-            {{ form.submit() }}
-        </div>
-    </form>
-    {% for article in articles %}
-        <div>
-            <h3>{{ article['title'] }}</h3>
-            <img src={{ article['urlToImage'] }}><img>
 
-            <p>{{ article['description'] }}</p>
-            <p>{{ article['publishedAt'][0:10] }}</p>
-            <a target="_blank" href={{ article['url'] }}>Leia mais</a>
+<main>
+    <h2 class="bemvindo">Bem vindo(a) {{ user.nome }}!</h2>
+    <br>
+    <div class="login" id="login_main">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.DataInicio.label(class="senha") }}<br>
+                    {% if form.DataInicio.errors %}
+                        {{ form.DataInicio() }}
+                        <div>
+                            {% for error in form.DataInicio.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.DataInicio(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.DataFim.label(class="senha") }}<br>
+                    {% if form.DataFim.errors %}
+                        {{ form.DataFim() }}
+                        <div>
+                            {% for error in form.DataFim.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.DataFim(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.assunto.label(class="senha") }}<br>
+                    {% if form.assunto.errors %}
+                        {{ form.assunto() }}
+                        <div>
+                            {% for error in form.assunto.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.assunto(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.categoria.label(class="senha") }}<br>
+                    {% if form.categoria.errors %}
+                        {{ form.categoria() }}
+                        <div>
+                            {% for error in form.categoria.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.categoria(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <div class="formulario_login">
+                    <!-- form.something(class = "something to style") -->
+                    {{ form.filtrarPor.label(class="senha") }}<br>
+                    {% if form.filtrarPor.errors %}
+                        {{ form.filtrarPor() }}
+                        <div>
+                            {% for error in form.filtrarPor.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.filtrarPor(class="camposenha") }}
+                    {% endif %}  
+                </div>
+                
+            </fieldset>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </div>
+    
+    {% for article in articles %}
+        <div class="noticia">
+            <a target="_blank" href={{ article['url'] }}><img src={{ article['urlToImage'] }}></a>
+            <div class="informacao">
+                <a target="_blank" href={{ article['url'] }}><h3>{{ article['title'] }}</h3></a>
+                <a target="_blank" href={{ article['url'] }}><p>{{ article['description'] }}</p></a>
+                <a target="_blank" href={{ article['url'] }}>{{ article['publishedAt'][0:10] }}</a>
+                <br>
+                <br>
+                <a class="upper" target="_blank" href={{ article['url'] }}>Leia mais</a>
+            </div>
         </div>
         <br>
        

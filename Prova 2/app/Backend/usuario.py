@@ -13,4 +13,4 @@ class Usuario(Pessoa):
     endereco: str = "-"
 
     def __eq__(self, other):
-        return self.login == other.login or self.senha == other.senha or self.email == other.email
+        return self.login == other.login or self.email == other.email
